@@ -4,7 +4,7 @@
 
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
+from snowflake.snowpark.functions import col
 from datetime import datetime, date
 
 
@@ -12,7 +12,8 @@ from datetime import datetime, date
 # SNOWFLAKE SESSION & CONFIG
 # =====================================================
 
-session = get_active_session()
+cnx = st.connection("snowflake")
+session = cnx.session()
 
 session.use_database("CV")
 session.use_schema("CONTENT")
