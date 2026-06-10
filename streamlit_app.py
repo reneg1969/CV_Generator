@@ -1,4 +1,15 @@
 # Verbeteringen:
+# Bovenaan het formulier moet een medewerker een bestaande opgeslagen CV_Name kunnen selecteren om te editen.
+# teller van resterende characters bij Profile
+# De Add-knop doet het niet altijd.
+# Competence: ipv nummers, moet de Competence_Category aan de titelnaam toegevoegd worden
+# Competence_Category en Competence_Description moeten naast elkaar komen te staan
+# Bij training velden achter elkaar zetten. Year moet Year/period worden.
+# Kun je bij Experience er voor zorgen dat er al zoveel Experiences aangemaakt en voorgevuld worden met Role
+#     en Employer uit de Summary?
+# Experience_Description ontbreekt.
+# Bij Experience de knoppen van Activity en Method achter invulveld plaatsen.
+# Method moet Methods & Techniques zijn.
 # Engels/Nederlands
 
 
@@ -165,6 +176,7 @@ if "Experience" not in st.session_state:
         "Experience_Employer": "",
         "Experience_Role": "",
         "Experience_Period": "",
+        "Experience_Description: "",
         "Activities": [""],
         "Methods": [""]
     }]
@@ -535,6 +547,12 @@ for i, exp in enumerate(st.session_state.Experience):
         disabled=disabled
     )
 
+    exp["Experience_Description"] = st.text_input(
+        "Experience Description",
+        value=exp["Experience_Description"],
+        key=f"exp_desc_{i}",
+        disabled=disabled
+    )
     # ==========================================
     # ACTIVITIES
     # ==========================================
@@ -624,6 +642,7 @@ with col1:
             "Experience_Employer": "",
             "Experience_Role": "",
             "Experience_Period": "",
+            "Experience_Description": "",
             "Activities": [""],
             "Methods": [""]
         })
