@@ -176,7 +176,7 @@ if "Experience" not in st.session_state:
         "Experience_Employer": "",
         "Experience_Role": "",
         "Experience_Period": "",
-        "Experience_Description: "",
+        "Experience_Description": "",
         "Activities": [""],
         "Methods": [""]
     }]
